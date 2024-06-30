@@ -23,9 +23,11 @@ const upImageURL = 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/179/3
 const downImageURL = 'https://pbs.twimg.com/media/EUHsdbzUYAYVpxm.jpg';
 
 
+
 // 랜덤 값 생성
 function makeAnswer(){
   answer = Math.floor(Math.random() * 100) + 1;
+  console.log(answer)
 }
 
 makeAnswer();
@@ -87,12 +89,12 @@ function play(){
 
 function reset(){
   // 잔여 찬스 수에 따른 alert
-  if(change !== 0){
+  if(change !== 0 && Number(inputBox.value) !== answer){
     if(confirm("아직 기회가 남아있어요! 리셋하시겠어요?")){ 
       alert("리셋 완료");
     }
   }else{
-    alert("리셋 완료");
+    alert("한번 더!");
   }
   
   inputBox.value = '';
