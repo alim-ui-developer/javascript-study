@@ -1,0 +1,116 @@
+*{margin:0; padding:0}
+
+@font-face {
+  font-family: 'RixInooAriDuriR';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:'bitbit';
+  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+
+#wrap{
+  position:relative;
+  width:100vw;
+  min-height:100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'bitbit';
+  background:url('https://images.pexels.com/photos/1314529/pexels-photo-1314529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') 50% 50% no-repeat;
+  background-size:cover;
+  &::before{
+    position:absolute;
+    display:block;
+    content:"";
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.2);
+  }
+  .contents{
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    z-index:2;
+    width:90%;
+    max-width:1000px;
+    padding:80px 0;
+    box-sizing:border-box;
+    background:rgba(255,255,255,0.8);
+    h1{
+      font-size:8.5vmin;
+      line-height:1;
+      font-weight:normal;
+      text-align:center;
+    }
+    .chanceArea{
+      display:inline-block;
+      font-size:80px;
+      text-align:center;
+      color:#fff;
+      -webkit-text-stroke:5px black;
+      margin:20px 0;
+      padding:0 20px 0 10px;
+      background:DeepSkyBlue;
+    }
+    .imageBox{
+      width:50%;
+      height:auto;
+      margin:0 auto;
+      img{
+        width:100%;
+        height:auto;
+      }
+    }
+    .resultArea{
+      font-size:50px;
+      line-height:1.5;
+      text-align:center;
+    }
+    .inputArea{
+      display:flex;
+      border:1px solid #000;
+      input{
+        width:420px;
+        height:65px;
+        padding:0 15px;
+        box-sizing:border-box;
+        font-family:inherit;
+        font-size:1.75vmax;
+        border:none;
+      }
+      button{
+        font-family:inherit;
+        font-size:1.2vmax;
+        width:85px;
+        height:65px;
+        background:DeepSkyBlue;
+        border:none;
+        border-left:1px solid #000;
+      }
+    }
+    .btn_reset{
+      position:absolute;
+      right:-30px;
+      top:-30px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      width:120px;
+      height:120px;
+      border-radius:100%;
+      background:#252A35;
+      border:none;
+      overflow:hidden;
+      cursor: pointer;
+      img{
+        width:94%;
+        height:auto;
+      }
+    }
+  }
+}
