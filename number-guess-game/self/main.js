@@ -92,6 +92,8 @@ function play(){
   change--;
   chanceArea.textContent = change;
 
+  historyArray.push(userValue);
+  historyArea.textContent = `입력한 값: ${historyArray}`
 
   if(change <= 0 && userValue !== answer){
     imageBox.src = failImageURL;
@@ -100,9 +102,6 @@ function play(){
     setDisabled(true);
     return;
   }
-
-  historyArray.push(userValue);
-  historyArea.textContent = `입력한 값: ${historyArray}`
 
   if(userValue > answer){
     imageBox.src = downImageURL;
@@ -151,5 +150,6 @@ function reset(){
   change = initialChanceValue;
   resultArea.textContent = initialResultValue;
   chanceArea.textContent = initialChanceValue;
+  historyArea.textContent = '';
 }
 
