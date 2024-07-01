@@ -1,36 +1,71 @@
 let answer = 0;
 
-const initialChanceValue = 5;
+const initialChanceValue = 3;
 let change = initialChanceValue;
+let historyArray = [];
 
 const minValue = 1;
 const maxValue = 100;
-const initialResultValue = '결과는?';
+const initialResultValue = '날 이길 수 있겠는가 휴먼?';
 
+const rightAnswerArea = document.querySelector('.rightAnswerArea');
 const inputBox = document.querySelector('.userInput');
 const resultArea = document.querySelector('.resultArea');
 const chanceArea = document.querySelector('.chanceArea span');
 const playButton = document.querySelector('.btn_play');
 const resetButton = document.querySelector('.btn_reset');
-
-let historyArray = [];
-
+const toastMessage = document.querySelector('.toastMessage');
+const historyArea = document.querySelector('.historyArea');
 const imageBox = document.querySelector('.imageBox img');
-const guessImageURL = 'https://velog.velcdn.com/images/leeeeeyeon/post/8500868a-95c6-4440-804e-90b2012c6ea6/image.jpg';
-const successImageURL = 'https://pbs.twimg.com/media/ESNTcR8UUAUAiKX?format=png&name=small';
-const failImageURL = 'https://pbs.twimg.com/media/EIdHY9TXsAAyK1H.jpg';
+
+const aiImageURL = 'https://image.fmkorea.com/files/attach/new/20180508/33854530/727953339/1048723109/1f8d1f0dd06e5daa2edddcbaa4369305.jpg';
+
+const successImageURL = 'https://lh4.googleusercontent.com/proxy/Hr1y8fmw_NorLxFBQj82ndr6D6OE63YRkPZYaZCT76lwKFCjRfAvdp4thpmIaIdG0WqL_WTYsglZ2X8zkMimxLHOWghGoYRVRj0nnJROuRrEgl5Etc_8C3dZiYWBILKq';
+const successMessage = '나의 패배를 인정한다 휴먼';
+
+const failImageURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGxVbbyFcxuzbqqF-nnVi9zWWayTACXM4OA&s';
+const failMessage = '완벽한 나의 승리다 휴먼';
+
 const upImageURL = 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/179/33531d1dffc43ba255706bb3baa24536.jpeg';
-const downImageURL = 'https://pbs.twimg.com/media/EUHsdbzUYAYVpxm.jpg';
+const downImageURL = 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcVIL3K%2Fbtra33L4bBB%2FQvMft9H9TKTeqigbKKIx6K%2Fimg.jpg';
 
 
 
 // 랜덤 값 생성
 function makeAnswer(){
+  console.log("makeAnswer")
   answer = Math.floor(Math.random() * 100) + 1;
-  console.log(answer)
+  rightAnswerArea.textContent = `정답은 ${answer}입니다`;
+  
 }
 
+// 초기 셋팅
+function initialSetting(){
+  chanceArea.textContent = initialChanceValue;
+  imageBox.src = aiImageURL;
+  resultArea.textContent = initialResultValue;
+}
+
+initialSetting();
 makeAnswer();
+
+// 토스트 팝업
+let isToastShown = false;
+function showToastMessage(){
+  if (isToastShown) return;
+  isToastShown = true;
+  toastMessage.classList.add("show");
+
+  setTimeout(function () {
+    toastMessage.classList.remove("show");
+    isToastShown = false;
+  }, 800);
+}
+
+// 입력 창 초기화
+function inputValueClear(){
+  inputBox.value = '';
+}
 
 function setDisabled(boolean){
   inputBox.disabled = boolean;
@@ -43,48 +78,59 @@ function play(){
   // 입력 숫자 범위 넘어갈 경우 예외처리
   if(userValue < minValue || userValue > maxValue){
     alert(`${minValue}부터 ${maxValue}까지의 숫자만 입력 가능합니다.`);
-    inputBox.value = '';
+    inputValueClear();
     return;
   }
 
   // 중복 값 입력 방지
   if(historyArray.includes(userValue)){
-    alert("이미 입력한 값입니다")
+    alert("이미 입력한 값입니다");
+    inputValueClear();
     return;
   }
-
 
   change--;
   chanceArea.textContent = change;
 
-  if(change <= 0){
+
+  if(change <= 0 && userValue !== answer){
     imageBox.src = failImageURL;
+    resultArea.textContent = failMessage;
     alert("기회를 모두 사용하셨습니다");
     setDisabled(true);
-
     return;
   }
 
   historyArray.push(userValue);
+  historyArea.textContent = `입력한 값: ${historyArray}`
 
   if(userValue > answer){
     imageBox.src = downImageURL;
-    resultArea.textContent = 'DOWN⬇️';
+    resultArea.textContent = '⬇️DOWN⬇️'
+    toastMessage.textContent = '땡!';;
+    showToastMessage();
+    inputValueClear();
     return;
   }
   
   if(userValue < answer){
     imageBox.src = upImageURL;
-    resultArea.textContent = 'UP⬆️';
+    resultArea.textContent = '⬆️UP⬆️';
+    toastMessage.textContent = '땡!';
+    showToastMessage();
+    inputValueClear();
     return;
   }
   
   if(userValue === answer){
     imageBox.src = successImageURL;
-    resultArea.textContent = '🎉맞췄어요🎉';
+    resultArea.textContent = successMessage;
+    toastMessage.textContent = '딩동댕!';
+    showToastMessage();
     setDisabled(true);
     return;
   }
+
 }
 
 function reset(){
@@ -97,10 +143,11 @@ function reset(){
     alert("한번 더!");
   }
   
-  inputBox.value = '';
-  imageBox.src = guessImageURL;
-
+  inputValueClear();
+  makeAnswer();
   setDisabled(false);
+  historyArray = [];
+  imageBox.src = aiImageURL;
   change = initialChanceValue;
   resultArea.textContent = initialResultValue;
   chanceArea.textContent = initialChanceValue;
