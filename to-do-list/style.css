@@ -1,0 +1,61 @@
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+body{
+  width:100vw;
+  height:100vh;
+  background: linear-gradient(-45deg, #FDEA8B, #ffa481, #ee518d, #33b7e7, #CE9CFF,#23d5ab);
+  background-size: 500% 500%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+.container{
+  background:#fff;
+  box-shadow:rgba(0,0,10px, 0.25) 0px 0px 10px;
+}
+
+.task-area{
+  border:1px solid lightgray;
+}
+
+.task-tabs{
+  position:relative;
+  border:1px solid lightgray;
+}
+
+.task-tabs ul{
+  display:flex;
+}
+
+.task-tabs ul li{
+  padding:1em;
+  cursor: pointer;
+}
+
+#under-line{
+  position:absolute;
+  height:4px;
+  width:80px;
+  left:0px;
+  background:pink;
+}
+
+.task{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  .task-done{
+    text-decoration: line-through;
+  }
+}
