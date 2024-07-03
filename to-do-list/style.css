@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Ownglyph_ryuttung-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/Ownglyph_ryuttung-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
@@ -10,52 +17,211 @@
   }
 }
 
-
-
 body{
   width:100vw;
   height:100vh;
   background: linear-gradient(-45deg, #FDEA8B, #ffa481, #ee518d, #33b7e7, #CE9CFF,#23d5ab);
   background-size: 500% 500%;
-  animation: gradient-animation 15s ease infinite;
+  animation: gradient-animation 35s ease infinite;
+  font-family: 'Ownglyph_ryuttung-Rg';
+  font-size:25px;
+  @media screen and (max-width: 768px){
+    font-size:15px;
+  }
 }
 
 .container{
+
+}
+
+h1{
+  margin:35px 0 15px;
+  font-size:3em;
+  text-align:center;
+}
+
+.attainmentRate{
+  font-size:1.5em;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.contents{
   background:#fff;
   box-shadow:rgba(0,0,10px, 0.25) 0px 0px 10px;
 }
 
+.input-area{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  max-width:400px;
+  height:50px;
+  margin:0 auto;
+}
+
+.input-area #task-input{
+  width:calc(100% - 80px);
+  height:100%;
+  padding:0 15px;
+  font-size:1.25em;
+}
+
+.input-area #add-button{
+  height:100%;
+  width:80px;
+  background:rgba(255,255,255,0.6);
+  font-size:1.25em;
+}
+
+.input-area #add-button:hover{
+  background:rgba(255,255,255,0.9)
+
+}
+
 .task-area{
-  border:1px solid lightgray;
+  text-align:center;
 }
 
 .task-tabs{
   position:relative;
-  border:1px solid lightgray;
+  display:inline-block;
+  height:60px;
+  margin:20px 0 40px;
 }
 
 .task-tabs ul{
   display:flex;
+  height:100%;
 }
 
 .task-tabs ul li{
-  padding:1em;
+  width:100px;
+  font-size:1.25em;
+  text-align:center;
+  font-weight:800;
   cursor: pointer;
+}
+
+.task-tabs ul li:hover{
+  font-weight:800;
 }
 
 #under-line{
   position:absolute;
   height:4px;
-  width:80px;
+  width:100px;
   left:0px;
-  background:pink;
+  bottom:0;
+  background:#fff;
+  transition:left linear 200ms;
+}
+
+
+
+#task-board{
+  width:100%;
+  max-width:1400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .task{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  .task-done{
-    text-decoration: line-through;
+  width:25%;
+  margin-bottom:20px;
+  @media screen and (max-width: 768px){
+    width:50%;
+    margin-bottom:30px;
   }
+}
+
+.task .photo{
+  width:100%;
+  padding:15px 15px 35px 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.2);
+  background:#fff;
+  @media screen and (max-width: 768px){
+    padding:10px 10px 20px 10px;
+  }
+}
+
+.task .photo .image{
+  position:relative;
+}
+
+.task .photo .image::after{
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+  content:"";
+  width:100%;
+  height:100%;
+  box-shadow: rgba(0, 0, 0, 0.4) 3px 3px 10px inset;
+}
+
+.task .photo .image img{
+  width:100%;
+  height:auto;
+}
+
+.task .photo .text{
+  font-size:20px;
+  line-height:1;
+  text-align:center;
+  margin-top:10px;
+}
+
+.task .buttons {
+  display:flex;
+  flex-direction: row-reverse;
+  gap:5px;
+  margin-top:10px;
+}
+
+.task .buttons button{
+  display:block;
+  width:36px;
+  height:36px;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  border-radius:100%;
+  text-indent:-9999px;
+}
+
+.task .buttons .btn_check{
+  background-image:url('https://cdn-icons-png.flaticon.com/512/1936/1936474.png');
+  background-size:calc(100% + 15px) auto;
+}
+
+.task .buttons .btn_check:hover{
+  background-image:url('https://cdn-icons-png.flaticon.com/512/1936/1936505.png');
+  background-size:calc(100% + 15px) auto;
+}
+
+.task .buttons .btn_delete{
+  background-image:url('https://cdn-icons-png.flaticon.com/512/1617/1617543.png');
+  background-size:100% auto;
+}
+
+.task .buttons .btn_delete:hover{
+  background-image:url('https://cdn-icons-png.flaticon.com/512/1617/1617296.png');
+  background-size:100% auto;
+}
+
+
+.task-done .photo{
+  background:rgb(223, 223, 223);
+}
+
+.task-done img{
+  filter: grayscale(0.9);
+}
+
+.task-done .buttons .btn_check{
+  background-image:url('https://cdn-icons-png.flaticon.com/512/1936/1936505.png');
 }
