@@ -1,0 +1,118 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'D2 coding';
+  font-style: normal;
+  font-weight: 400;
+  src: url('D2Coding.eot');
+  src: local('※'), local('D2Coding'),
+       url('D2Coding.eot?#iefix') format('embedded-opentype'),
+       url('D2Coding.woff2') format('x-woff2'),
+       url('D2Coding.woff') format('woff'),
+       url('D2Coding.ttf') format('truetype'),
+       url('D2Coding.svg') format('svg');
+}
+
+body{
+  font-family: 'GangwonEdu_OTFBoldA';
+  margin:35px 0 50px;
+  background: linear-gradient(336deg, rgba(191,187,255,1) 0%, rgba(241,231,136,1) 53%, rgba(255,190,234,1) 100%);
+}
+
+h1{
+  font-size:38px;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.memo{
+  font-size:18px;
+  text-align:center;
+  color:#ff0d65;
+  margin-bottom:25px;
+}
+
+section{
+  width:90%;
+  max-width:700px;
+  margin:0 auto;
+}
+
+article{
+  margin-bottom:20px;
+  padding:30px;
+  /* border:1px solid #e5e5e5; */
+  background:#fff;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+}
+
+h2{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+h2 code{
+  position: relative;
+  top:-2px;
+  font-family: D2Coding, 'D2 coding', monospace;
+  font-size:16px;
+  font-weight:500;
+  background:#fff8d3;
+  padding:3px 5px;
+}
+
+.answerTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:20px 0 8px;
+}
+.answerTitle h3{
+  font-size:20px;
+}
+
+.answerTitle button{
+  width:auto;
+  height:32px;
+  font-family:inherit;
+  font-size:14px;
+  line-height:37px;
+  padding:0 15px 0 10px;
+  background:steelblue;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+.answerTitle button:hover{
+  background:#2a587e;
+}
+
+pre{
+  font-family: D2Coding, 'D2 coding', monospace;
+  font-size:13px;
+}
+
+.codeBlock pre{
+  background:#f2f2f2;
+  padding:20px 15px;
+}
+
+.answerBox pre{
+  background:#dcebfc;
+  padding:15px;
+}
+
+.answerBox pre:not(:first-child){
+  margin-top:8px;
+}
