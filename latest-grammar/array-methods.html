@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="array-methods.js"></script>
+  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="array-methods.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="title">
+    <h1>배열함수 문제</h1>
+    <p class="memo">개발자 도구를 열어서 확인하세요</p>
+  </div>
+    
+  <section class="wrap">
+    <section class="fix">
+      <article>
+        <h2>* 모든 문제에는 다음 배열이 쓰입니다.</h2>
+        <div class="codeBlock">
+  <pre>
+let names = [
+  "Steven Paul Jobs",
+  "Bill Gates",
+  "Mark Elliot Zuckerberg",
+  "Elon Musk",
+  "Jeff Bezos",
+  "Warren Edward Buffett",
+  "Larry Page",
+  "Larry Ellison",
+  "Tim Cook",
+  "Lloyd Blankfein",
+];
+</pre>
+        </div>
+      </article>
+    </section>
+  
+    <section>
+      <article class="question_map">
+        <h2>map 문제</h2>
+        <ul>
+          <li>모든 이름을 대문자로 바꾸어서 출력하시오.</li>
+          <li>성을 제외한 이름만 출력하시오. (예-[“Steven”,“Bill”,“Mark”,“Elon”…])</li>
+          <li>이름의 이니셜만 출력하시오. (예-[“SPU”,“BG”,“MEZ”,“EM”…])</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 모든 이름을 대문자로 바꾸어서 출력하시오.</h4>
+            <button onclick="question_map(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+names.map((name) => {
+  return namesNewArray.push(name.toUpperCase());
+})
+</pre>
+          <div class="answerTitle">
+            <h4>2. 성을 제외한 이름만 출력하시오. (예-[“Steven”,“Bill”,“Mark”,“Elon”…])</h4>
+            <button onclick="question_map(2);">🔍콘솔 확인하기</button>
+          </div>
+  <pre>
+let namesNewArray = [];
+
+names.map((name) => {
+  const getName = name.split(" ")[0];
+  return namesNewArray.push(getName);
+})
+</pre>
+          <div class="answerTitle">
+            <h4>3. 이름의 이니셜만 출력하시오. (예-[“SPU”,“BG”,“MEZ”,“EM”…])</h4>
+            <button onclick="question_map(3);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+const getNameInitial = () =>{
+  let initialArray = [];
+  let nameArray = name.split(" ");
+  
+  nameArray.map((arr) => {
+    return initialArray.push(arr.slice(0, 1));
+  })
+
+  return initialArray.join('');
+} 
+
+return namesNewArray.push(getNameInitial());
+</pre>
+        </div>
+      </article>
+
+      <article>
+        <h2>filter 문제</h2>
+        <ul>
+          <li>이름에 a를 포함한 사람들을 출력하시오.</li>
+          <li>이름에 같은 글자가 연속해서 들어간 사람을 출력하시오. (예-tt,ff,ll 이런 글자들)</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 이름에 a를 포함한 사람들을 출력하시오.</h4>
+            <button onclick="question_filter(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+names.filter((name) => {
+  return name.includes('a') && namesNewArray.push(name);
+})
+</pre>
+          <div class="answerTitle">
+            <h4>2. 이름에 같은 글자가 연속해서 들어간 사람을 출력하시오. (예-tt,ff,ll 이런 글자들)</h4>
+            <button onclick="question_filter(2);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+names.filter((name) => {
+  let nameAlphabets = [...name.replace(/\s/g, "")];
+
+  for(let i = 0; i < nameAlphabets.length; i++){
+    nameAlphabets[i] === nameAlphabets[i-1] && !namesNewArray.includes(name) && namesNewArray.push(name);
+  }
+  return namesNewArray;
+})
+</pre>
+        </div>
+      </article>
+
+      <article>
+        <h2>some 문제</h2>
+        <ul>
+          <li>전체 이름의 길이가 20자 이상인 사람이 있는가?</li>
+          <li>성을 제외한 이름에 p를 포함한 사람이 있는가?(대소문자 상관 no)</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 전체 이름의 길이가 20자 이상인 사람이 있는가?</h4>
+            <button onclick="question_some(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+const question1 = names.some((name) => {
+  return name.length >= 20;
+})
+
+console.log(question1);
+</pre>
+          <div class="answerTitle">
+            <h4>2. 성을 제외한 이름에 p를 포함한 사람이 있는가?(대소문자 상관 no)</h4>
+            <button onclick="question_some(2);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+const question2 = names.some((name) => {
+  const getName = name.split(" ")[0];
+  return getName.toLowerCase().includes('p');
+})
+
+console.log(question2);
+</pre>
+        </div>
+      </article>
+
+      <article>
+        <h2>every 문제</h2>
+        <ul>
+          <li>모두의 전체 이름의 길이가 20자 이상인가?</li>
+          <li>모두의 이름에 a 가 포함되어 있는가?</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 모두의 전체 이름의 길이가 20자 이상인가?</h4>
+            <button onclick="question_every(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+const question1 = names.every((name) => {
+  return name.length >= 20;
+})
+
+console.log(question1);
+</pre>
+          <div class="answerTitle">
+            <h4>2. 모두의 이름에 a 가 포함되어 있는가?</h4>
+            <button onclick="question_every(2);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+const question2 = names.every((name) => {
+  return name.toLowerCase().includes('a');
+})
+
+console.log(question2);
+</pre>
+        </div>
+      </article>
+
+      <article>
+        <h2>find 문제</h2>
+        <ul>
+          <li>전체 이름의 길이가 20자 이상인 사람을 찾으시오.</li>
+          <li>미들네임이 포함되어있는 사람을 찾으시오.(예-Steven Paul Jobs)</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 전체 이름의 길이가 20자 이상인 사람을 찾으시오.</h4>
+            <button onclick="question_find(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+names.filter((name) => {
+  return name.length >= 20 && namesNewArray.push(name);
+})
+</pre>
+          <div class="answerTitle">
+            <h4>2. 미들네임이 포함되어있는 사람을 찾으시오.(예-Steven Paul Jobs)</h4>
+            <button onclick="question_find(2);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesNewArray = [];
+
+names.filter((name) => {
+  const nameLength = name.split(' ').length;
+  return nameLength >= 3 && namesNewArray.push(name);
+})
+</pre>
+        </div>
+      </article>
+
+      <article>
+        <h2>findIndex 문제</h2>
+        <ul>
+          <li>전체 이름의 길이가 20자 이상인 사람의 인덱스 번호를 찾으시오.</li>
+          <li>미들네임이 포함되어있는 사람의 인덱스 번호를 찾으시오.</li>
+        </ul>
+        <h3>정답</h3>
+        <div class="answerBox">
+          <div class="answerTitle">
+            <h4>1. 전체 이름의 길이가 20자 이상인 사람의 인덱스 번호를 찾으시오.</h4>
+            <button onclick="question_findIndex(1);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+let namesIndexArray = [];
+
+const getIndex = () => {
+  names.findIndex((name, index) => {
+    name.length >= 20 && namesIndexArray.push(index);
+  })
+
+  return namesIndexArray;
+};
+
+getIndex();
+</pre>
+          <div class="answerTitle">
+            <h4>2. 미들네임이 포함되어있는 사람의 인덱스 번호를 찾으시오.</h4>
+            <button onclick="question_findIndex(2);">🔍콘솔 확인하기</button>
+          </div>
+<pre>
+const getIndex = () => {
+  names.findIndex((name, index) => {
+    const nameLength = name.split(' ').length;
+    nameLength >= 3 && namesIndexArray.push(index);
+  })
+
+  return namesIndexArray;
+}
+
+getIndex();
+</pre>
+        </div>
+
+      </article>
+    </section>
+  </section>
+</body>

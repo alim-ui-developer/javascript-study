@@ -1,0 +1,176 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'D2 coding';
+  font-style: normal;
+  font-weight: 400;
+  src: url('D2Coding.eot');
+  src: local('※'), local('D2Coding'),
+       url('D2Coding.eot?#iefix') format('embedded-opentype'),
+       url('D2Coding.woff2') format('x-woff2'),
+       url('D2Coding.woff') format('woff'),
+       url('D2Coding.ttf') format('truetype'),
+       url('D2Coding.svg') format('svg');
+}
+
+body{
+  font-family: 'GangwonEdu_OTFBoldA';
+  margin-bottom:50px;
+  background:Lavender;
+}
+
+.title{
+  position:sticky;
+  left:0;
+  top:0;
+  height:130px;
+  padding:35px 0 25px;
+  box-sizing:border-box;
+  background:Lavender;
+}
+.title h1{
+  font-size:38px;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.title .memo{
+  font-size:18px;
+  text-align:center;
+  color:RebeccaPurple;
+}
+
+.wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  width:90%;
+  min-width:1200px;
+  max-width:1600px;
+  margin:0 auto;
+}
+
+.wrap section:not(.fix){
+  flex:1;
+}
+
+.wrap section.fix{
+  position:sticky;
+  left:0;
+  top:130px;
+  width:40%;
+}
+
+article{
+  margin-bottom:20px;
+  padding:30px;
+  background:#fff;
+}
+
+article h2{
+  font-size:24px;
+  margin-bottom:8px;
+  color:RebeccaPurple
+}
+
+article h2 code{
+  position: relative;
+  top:-2px;
+  font-family: D2Coding, 'D2 coding', monospace;
+  font-size:16px;
+  font-weight:500;
+  background:#fff8d3;
+  padding:3px 5px;
+}
+
+article ul{
+  margin-bottom:15px;
+  background:#f2f2f2;
+  padding:20px 15px;
+  box-sizing:border-box;
+}
+
+article ul li{
+  display:flex;
+  list-style:none;
+}
+
+article ul li:not(:first-child){
+  margin-top:3px;
+}
+
+article ul li::before{
+  display:block;
+  content:"-";
+  margin-right:5px;
+
+}
+
+article h3{
+  font-size:24px;
+  margin-top:35px;
+  margin-bottom:-15px;
+  color:RebeccaPurple;
+}
+
+
+.answerTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+.answerTitle h4{
+  flex: 1;
+  font-size:18px;
+}
+
+.answerTitle button{
+  width:auto;
+  height:32px;
+  font-family:inherit;
+  font-size:14px;
+  line-height:37px;
+  padding:0 15px 0 10px;
+  background:MediumPurple;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+.answerTitle button:hover{
+  background:RebeccaPurple;
+}
+
+pre{
+  font-family: D2Coding, 'D2 coding', monospace;
+  font-size:13px;
+  line-height:18px;
+}
+
+.codeBlock pre{
+  background:#f2f2f2;
+  padding:20px 15px;
+  box-sizing:border-box;
+}
+
+.answerBox pre{
+  background:Lavender;
+  padding:15px;
+}
+
+.answerBox pre:not(:first-child){
+  margin-top:8px;
+}
