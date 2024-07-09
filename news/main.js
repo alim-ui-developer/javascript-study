@@ -29,7 +29,8 @@ const setPhrase = (text, len) => {
 }
 
 const categoryFilter = async (category) => {
-  url = new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?category=${category.toLowerCase()}`);
+  // url = new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?category=${category.toLowerCase()}`);
+  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}&category=${category.toLowerCase()}`)
   const response = await fetch(url);
   const data = await response.json();
   if(data.articles.length !== 0){
