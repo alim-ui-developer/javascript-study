@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./reset.css">
   <link rel="stylesheet" href="./style.css">
-  <script defer src="./main.js"></script>
-  <title>누나일보</title>
+  <title>가장자리일보</title>
 </head>
 <body>
-  
+  <section class="container">
+    <header>
+      <h1>The<br />GajangJari</h1>
+      <nav class="gnb">
+        <button onclick="categoryFilter('Business')">Business</button>
+        <button onclick="categoryFilter('Entertainment')">Entertainment</button>
+        <button onclick="categoryFilter('General')">General</button>
+        <button onclick="categoryFilter('Health')">Health</button>
+        <button onclick="categoryFilter('Science')">Science</button>
+        <button onclick="categoryFilter('Sports')">Sports</button>
+        <button onclick="categoryFilter('Technology')">Technology</button> 
+      </nav>
+    </header>
+
+    <section id="news-board">
+      
+    </section>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+  <script defer src="./main.js"></script>
 </body>
 </html>
