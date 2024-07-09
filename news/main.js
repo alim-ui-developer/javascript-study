@@ -6,8 +6,8 @@ let category = '';
 
 const getLatestNews = async () => {
   // const url = new URL(`https://newsapi.org/v2/top-headlines?country=${COUNTRY}&apiKey=${API_KEY}`); // 참고: https://developer.mozilla.org/ko/docs/Web/API/URL
-  // const url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}`);
-  url = new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`)
+  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}`);
+  // url = new URL(`http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`)
   const response = await fetch(url);
   const data = await response.json();
 
