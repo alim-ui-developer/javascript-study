@@ -90,7 +90,7 @@ header .navbar-toggler {
   background-size: 100% auto;
   text-indent: -9999px;
 }
-header .navbar-toggler.collapsed {
+header .navbar-toggler[aria-expanded=false] {
   background-image: url("https://cdn2.iconfinder.com/data/icons/css-vol-2/24/menu-right-256.png");
 }
 
@@ -139,6 +139,7 @@ header .navbar-toggler.collapsed {
   background: #F3F4F6;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
+  margin-bottom: 15px;
   aspect-ratio: 100/60;
 }
 #news-board .news .image-area img {
@@ -156,6 +157,7 @@ header .navbar-toggler.collapsed {
 #news-board .news .text-area p {
   font-size: 1.15rem;
   line-height: 1.35;
+  color: #666;
 }
 #news-board .news .text-area .copyright {
   display: flex;
