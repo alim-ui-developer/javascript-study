@@ -50,6 +50,9 @@ header .searchBox input[type=search] {
   font-size: 1.15rem;
   border-bottom: 1px solid #d1d1d1;
 }
+header .searchBox input[type=search]:focus {
+  outline: none;
+}
 header .searchBox button {
   font-size: 0.85rem;
   width: 28px;
@@ -112,6 +115,16 @@ header .navbar-toggler[aria-expanded=false] {
   max-width: 100%;
 }
 
+.resultText {
+  font-size: 0.85rem;
+  text-align: right;
+  margin-bottom: 5px;
+}
+.resultText em {
+  font-style: normal;
+  font-weight: 600;
+}
+
 #news-board {
   display: flex;
   flex-wrap: wrap;
@@ -163,8 +176,17 @@ header .navbar-toggler[aria-expanded=false] {
   display: flex;
   justify-content: flex-end;
   font-size: 1rem;
-  color: #666;
+  color: #a1a1a1;
   margin-top: 25px;
+}
+#news-board .news .text-area .copyright .source {
+  display: flex;
+}
+#news-board .news .text-area .copyright .source::after {
+  display: block;
+  content: "/";
+  color: #d1d1d1;
+  margin: 0 3px;
 }
 
 footer {

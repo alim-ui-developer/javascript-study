@@ -50,6 +50,9 @@ header{
       padding:0 10px;
       font-size:1.15rem;
       border-bottom:1px solid #d1d1d1;
+      &:focus{
+        outline:none;
+      }
     }
     button{
       font-size:0.85rem;
@@ -117,6 +120,15 @@ header{
   max-width:100%;
 }
 
+.resultText{
+  font-size:0.85rem;
+  text-align:right;
+  margin-bottom:5px;
+  em{
+    font-style: normal;
+    font-weight:600;
+  }
+}
 #news-board{
   display:flex;
   flex-wrap: wrap;
@@ -172,8 +184,18 @@ header{
         display:flex;
         justify-content: flex-end;
         font-size:1rem;
-        color:#666;
+        color:#a1a1a1;
         margin-top:25px;
+        .source{
+          display:flex;
+          &::after{
+            display:block;
+            content:"/";
+            color:#d1d1d1;
+            margin:0 3px;
+          }
+        }
+
       }
     }
     

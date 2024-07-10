@@ -11,10 +11,12 @@
 <body>
   <section class="container">
     <header>
-      <h1>The <em>GajangJari</em></h1>
+      <h1>
+        <a href="/index.html">The <em>GajangJari</em></a>
+      </h1>
       <nav>
-        <form class="searchBox">
-          <input type="search" placeholder="Search" aria-label="Search">
+        <form class="searchBox" onsubmit="keywordSearch(event)">
+          <input type="search"  aria-label="Search">
           <button type="submit">
             <img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/search-256.png" alt="">
           </button>
@@ -52,13 +54,10 @@
       <li>Technology</li> 
     </ul>
 
-   
-
-
+    <p class="resultText"></p>
     <section id="news-board">
       
     </section>
-
 
   </section>
   <footer>
