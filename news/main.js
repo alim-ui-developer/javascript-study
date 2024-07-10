@@ -1,6 +1,6 @@
 const COUNTRY = 'us';
-// const API_KEY = `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`;
-const API_KEY = `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`;
+const API_KEY = `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`;
+// const API_KEY = `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines`;
 let url = '';
 let newsList = [];
 let category = '';
