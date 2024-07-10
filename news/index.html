@@ -11,22 +11,59 @@
 <body>
   <section class="container">
     <header>
-      <h1>The<br />GajangJari</h1>
-      <nav class="gnb">
-        <button onclick="categoryFilter('Business')">Business</button>
-        <button onclick="categoryFilter('Entertainment')">Entertainment</button>
-        <button onclick="categoryFilter('General')">General</button>
-        <button onclick="categoryFilter('Health')">Health</button>
-        <button onclick="categoryFilter('Science')">Science</button>
-        <button onclick="categoryFilter('Sports')">Sports</button>
-        <button onclick="categoryFilter('Technology')">Technology</button> 
+      <h1>The <em>GajangJari</em></h1>
+      <nav>
+        <form class="searchBox">
+          <input type="search" placeholder="Search" aria-label="Search">
+          <button type="submit">
+            <img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/search-256.png" alt="">
+          </button>
+        </form>
+        <ul class="gnb">
+          <li onclick="categoryFilter('Business')">Business</li>
+          <li onclick="categoryFilter('Entertainment')">Entertainment</li>
+          <li onclick="categoryFilter('General')">General</li>
+          <li onclick="categoryFilter('Health')">Health</li>
+          <li onclick="categoryFilter('Science')">Science</li>
+          <li onclick="categoryFilter('Sports')">Sports</li>
+          <li onclick="categoryFilter('Technology')">Technology</li> 
+        </ul>
       </nav>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        메뉴
+      </button>
     </header>
+
+    <ul class="gnbMobile collapse" id="navbarSupportedContent">
+      <li>Business</li>
+      <li>Entertainment</li>
+      <li>General</li>
+      <li>Health</li>
+      <li>Science</li>
+      <li>Sports</li>
+      <li>Technology</li> 
+    </ul>
+
+   
+
 
     <section id="news-board">
       
     </section>
+
+
   </section>
+  <footer>
+    <address>Copyright by GajangJari Ilbo Co., Ltd. All Rights Reserved.</address>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
