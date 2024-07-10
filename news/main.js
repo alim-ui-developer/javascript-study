@@ -1,12 +1,13 @@
 const COUNTRY = 'us';
-const API_KEY = `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`;
+const API_KEY = '1b17a188b790486989053206c1e446ef';
+// const API_KEY = `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`;
 let url = '';
 let newsList = [];
 let category = '';
 
 const getLatestNews = async () => {
   // const url = new URL(`https://newsapi.org/v2/top-headlines?country=${COUNTRY}&apiKey=${API_KEY}`); // 참고: https://developer.mozilla.org/ko/docs/Web/API/URL
-  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}&apiKey=${API_KEY}`);
+  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}`);
   // url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`)
   const response = await fetch(url);
   const data = await response.json();
@@ -30,7 +31,7 @@ const setPhrase = (text, len) => {
 
 const categoryFilter = async (category) => {
   // url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category.toLowerCase()}`);
-  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}&apiKey=${API_KEY}&category=${category.toLowerCase()}`)
+  url = new URL(`https://alim-js-study.netlify.app/news/top-headlines?country=${COUNTRY}&category=${category.toLowerCase()}`)
   const response = await fetch(url);
   const data = await response.json();
   if(data.articles.length !== 0){
