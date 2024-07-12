@@ -111,6 +111,10 @@ header .navbar-toggler[aria-expanded=false] {
   color: #f6330a;
 }
 
+.container {
+  min-height: 100vh;
+}
+
 .news-img-size {
   max-width: 100%;
 }
@@ -123,6 +127,17 @@ header .navbar-toggler[aria-expanded=false] {
 .resultText em {
   font-style: normal;
   font-weight: 600;
+}
+
+.resultNullBox p {
+  padding: 150px 0;
+  text-align: center;
+  border: 1px solid #d1d1d1;
+}
+.resultNullBox p em {
+  font-style: normal;
+  color: #f6330a;
+  text-decoration: underline;
 }
 
 #news-board {

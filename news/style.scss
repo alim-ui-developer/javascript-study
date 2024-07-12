@@ -116,6 +116,10 @@ header{
   }
 }
 
+.container{
+  min-height:100vh;
+}
+
 .news-img-size{
   max-width:100%;
 }
@@ -129,6 +133,20 @@ header{
     font-weight:600;
   }
 }
+
+.resultNullBox{
+  p{
+    padding:150px 0;
+    text-align:center;
+    border:1px solid #d1d1d1;
+    em{
+      font-style: normal;
+      color:#f6330a;
+      text-decoration: underline;
+    }
+  }
+}
+
 #news-board{
   display:flex;
   flex-wrap: wrap;
