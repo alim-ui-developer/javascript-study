@@ -16,6 +16,12 @@ gnb.forEach((menu) =>
   menu.addEventListener("click", (event) => getNewsByCategory(event))
 )
 
+// pagination
+let totalResult = 0;
+let page = 1;
+let pageSize = 10;
+let groupSize = 5;
+
 const printLength = (word, list) => {
   if(!word){
     return resultTextArea.textContent = '';
@@ -37,6 +43,7 @@ const getNews = async (word) => {
       printLength(word, data.articles);
       newsList = data.articles;
       render();
+      paginationRender();
     }else{
       throw new Error(data.message);
     }
@@ -121,5 +128,33 @@ const errorRender = (errorMessage) => {
 
   document.getElementById("news-board").innerHTML = errorHTML;
 }
+
+const paginationRender = () => {
+  const pageGroup = Math.ceil(page / groupSize);
+  const lastPage = pageGroup * groupSize;
+  const firstPage = lastPage - (groupSize - 1);
+
+  let paginationHTML = ``;
+
+  for(let i = firstPage; i<=lastPage; i++){
+    paginationHTML += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`
+  }
+
+  
+  document.querySelector(".pagination").innerHTML = paginationHTML;
+
+//   <nav aria-label="Page navigation example">
+//   <ul class="pagination">
+//     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+//     <li class="page-item"><a class="page-link" href="#">1</a></li>
+//     <li class="page-item"><a class="page-link" href="#">2</a></li>
+//     <li class="page-item"><a class="page-link" href="#">3</a></li>
+//     <li class="page-item"><a class="page-link" href="#">Next</a></li>
+//   </ul>
+// </nav>
+
+}
+
+
 
 getLatestNews();
